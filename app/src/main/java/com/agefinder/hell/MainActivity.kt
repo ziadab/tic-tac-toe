@@ -12,7 +12,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main)
     }
 
@@ -46,7 +46,8 @@ class MainActivity : AppCompatActivity() {
 
         if(ActivePlayer==1){
             buSelected.text="X"
-            buSelected.setBackgroundResource(R.color.pink)
+            buSelected.setTextColor(Color.parseColor("white"))
+            buSelected.setBackgroundResource(R.color.black)
             player1.add(cellID)
             ActivePlayer=2
             //Thread.sleep(500)
@@ -54,7 +55,8 @@ class MainActivity : AppCompatActivity() {
             autoPlay()
         }else{
             buSelected.text="O"
-            buSelected.setBackgroundResource(R.color.colorPrimaryDark)
+            buSelected.setTextColor(Color.parseColor("black"))
+            buSelected.setBackgroundResource(R.color.white)
             player2.add(cellID)
             ActivePlayer=1
         }
