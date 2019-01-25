@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         // Toast.makeText(this,"ID:"+ cellID, Toast.LENGTH_LONG).show()
 
         PlayGame(cellID,buSelected)
-        Thread.sleep(500)
+        //Thread.sleep(500)
     }
 
     var player1=ArrayList<Int>()
@@ -146,9 +146,9 @@ class MainActivity : AppCompatActivity() {
         if( winer != -1){
 
             if (winer==1){
-                Toast.makeText(this," Player 1  win the game", Toast.LENGTH_LONG).show()
+                Toast.makeText(this," Player 1 win the game", Toast.LENGTH_LONG).show()
             }else{
-                Toast.makeText(this," Computer  win the game", Toast.LENGTH_LONG).show()
+                Toast.makeText(this," Computer win the game", Toast.LENGTH_LONG).show()
 
             }
 
@@ -159,34 +159,33 @@ class MainActivity : AppCompatActivity() {
     //var buSelect:Button?=null
 
     fun autoPlay(){
+        var buSelect: Button? = null
 
-        var buSelect:Button?=null
-
-        val emptyCells=ArrayList<Int>()
-        for ( cellID in 1..9){
-
-            if(!( player1.contains(cellID) || player2.contains(cellID))) {
+        val emptyCells = ArrayList<Int>()
+        for (cellID in 1..9) {
+            if (!(player1.contains(cellID) || player2.contains(cellID))) {
                 emptyCells.add(cellID)
             }
         }
 
+        // if all cells have been checked, the game is over
+        if (emptyCells.isEmpty()) return
 
-        val r=Random()
-        val randIndex=r.nextInt(emptyCells.size-0)+0
-        val cellID= emptyCells[randIndex]
+        val r = Random()
+        val randIndex = r.nextInt(emptyCells.size)
+        val cellID = emptyCells[randIndex]
 
-
-        buSelect = when(cellID){
-            1-> bt1
-            2-> bt2
-            3-> bt3
-            4-> bt4
-            5-> bt5
-            6-> bt6
-            7-> bt7
-            8-> bt8
-            9-> bt9
-            else->{
+        buSelect = when(cellID) {
+            1 -> bt1
+            2 -> bt2
+            3 -> bt3
+            4 -> bt4
+            5 -> bt5
+            6 -> bt6
+            7 -> bt7
+            8 -> bt8
+            9 -> bt9
+            else -> {
                 bt1
             }
         }
@@ -197,7 +196,6 @@ class MainActivity : AppCompatActivity() {
             cellID,
             buSelect!!
         )
-
     }
 
 
